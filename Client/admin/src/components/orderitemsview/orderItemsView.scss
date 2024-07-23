@@ -1,0 +1,65 @@
+@import "../../styles/variables.scss";
+
+.order-items-view {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.724);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+
+  .modal {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: $main-bg;
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 20px;
+      color: $soft-color;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      color: $soft-color;
+      font-size: 18px;
+    }
+
+    .items-container {
+      .order-item {
+        margin-bottom: 20px;
+        padding: 10px;
+        background-color: $dark-bg;
+        border-radius: 5px;
+        color: $main-color;
+
+        .item-details {
+          margin-bottom: 10px;
+
+          div {
+            margin-bottom: 5px;
+          }
+
+          strong {
+            color: $soft-color;
+          }
+        }
+
+        hr {
+          border: 1px solid $soft-bg;
+          margin: 10px 0;
+        }
+      }
+    }
+  }
+}

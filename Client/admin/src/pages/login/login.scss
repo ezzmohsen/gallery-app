@@ -1,0 +1,50 @@
+@import "../../styles/variables.scss";
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: $main-bg;
+}
+
+.login-box {
+  background-color: $soft-bg;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  width: 300px;
+  text-align: center;
+}
+
+.login-box h1 {
+  color: $main-color;
+  margin-bottom: 1rem;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 5px;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  background-color: $dark-bg;
+  color: $main-color;
+  cursor: pointer;
+
+  &:hover {
+    background-color: lighten($dark-bg, 10%);
+  }
+}
+
+.error-message {
+  color: red;
+  margin-top: 1rem;
+}

@@ -1,0 +1,41 @@
+@import "../../styles/variables.scss";
+.dataTable {
+  .successMessage {
+    display: flex;
+    font-weight: bold;
+    font-size: large;
+    width: 200px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5%;
+  }
+  .dataGrid {
+    background-color: white;
+    padding: 20px 10px;
+
+    .MuiDataGrid-toolbarContainer {
+      flex-direction: row-reverse;
+    }
+
+    img {
+      position: relative;
+      top: 10px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .action {
+      display: flex;
+      gap: 15px;
+
+      img {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+      }
+    }
+  }
+}
