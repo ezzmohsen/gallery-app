@@ -33,7 +33,11 @@ function Login() {
           "http://localhost:5000/api/auth/login",
           formData
         );
-        console.log(response.message);
+        console.log(response.data);
+        if (response.data && response.data.token) {
+          localStorage.setItem("authToken", response.data.token);
+          navigate("/store");
+        }
       } catch (error) {
         console.log(error);
       }
