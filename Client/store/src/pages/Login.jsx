@@ -2,6 +2,7 @@ import "../App.css";
 import { useState } from "react";
 import { validateEmail } from "../utils/utils";
 import axios from "axios";
+import { Navigate } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -36,7 +37,8 @@ function Login() {
         console.log(response.data);
         if (response.data && response.data.token) {
           localStorage.setItem("authToken", response.data.token);
-          navigate("/store");
+
+          <Navigate to="/store" />;
         }
       } catch (error) {
         console.log(error);
