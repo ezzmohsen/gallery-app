@@ -2,19 +2,25 @@ import "../App.css";
 import { useState } from "react";
 import { validateEmail } from "../utils/utils";
 import axios from "axios";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorForm, setErrorForm] = useState("");
   const PasswordErrorMessage = () => {
     return (
       <p className="FieldError">Password should have at least 8 characters</p>
     );
   };
+  const navigate = useNavigate();
 
   const getIsFormValid = () => {
     return validateEmail(email) && password.length >= 8;
+  };
+
+  const handleRegister = () => {
+    return navigate("/store/register");
   };
 
   const clearForm = () => {
@@ -38,10 +44,11 @@ function Login() {
         if (response.data && response.data.token) {
           localStorage.setItem("authToken", response.data.token);
 
-          <Navigate to="/store" />;
+          navigate("/store");
         }
-      } catch (error) {
-        console.log(error);
+      } catch (response) {
+        setErrorForm(response.response.data.message);
+        // console.log(error);
       }
     }
 
@@ -53,7 +60,7 @@ function Login() {
       <form onSubmit={handleSubmit}>
         <fieldset>
           <h2>Login In</h2>
-
+          <h3 style={{ color: "red" }}>{errorForm}</h3>
           <div className="Field">
             <label>
               Email address <sup>*</sup>
@@ -83,8 +90,17 @@ function Login() {
               <PasswordErrorMessage />
             ) : null}
           </div>
+          <div style={{ dispaly: "flex" }}>
+            <button type="submit">Log In</button>
 
-          <button type="submit">Log In</button>
+            <button
+              onClick={() => {
+                handleRegister();
+              }}
+            >
+              Create Account
+            </button>
+          </div>
         </fieldset>
       </form>
     </div>
