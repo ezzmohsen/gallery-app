@@ -124,13 +124,23 @@ function CreateAccount() {
                 </p>
               ) : null}
             </div>
-
-            <button
-              type="submit"
-              disabled={password.length < 8 || phone.length !== 11}
-            >
-              Create account
-            </button>
+            <div style={{ display: "flex" }}>
+              <button
+                type="submit"
+                disabled={password.length < 8 || phone.length !== 11}
+              >
+                Create account
+              </button>
+              <button
+                disabled={false}
+                onClick={() => {
+                  console.log("here");
+                  navigate("/login");
+                }}
+              >
+                Login
+              </button>
+            </div>
           </fieldset>
         </form>
       </div>

@@ -90,7 +90,7 @@ function Login() {
               <PasswordErrorMessage />
             ) : null}
           </div>
-          <div style={{ dispaly: "flex" }}>
+          <div style={{ display: "flex" }}>
             <button type="submit">Log In</button>
 
             <button
