@@ -59,8 +59,19 @@ function Login() {
     <div className="App">
       <form onSubmit={handleSubmit}>
         <fieldset>
-          <h2>Login In</h2>
-          <h3 style={{ color: "red" }}>{errorForm}</h3>
+          <h2
+            style={{
+              display: "flex",
+              alignSelf: "center",
+              padding: "0px",
+              margin: "0px",
+            }}
+          >
+            Log In
+          </h2>
+          <h3 style={{ color: "red" }} hidden={errorForm ? false : true}>
+            {errorForm}
+          </h3>
           <div className="Field">
             <label>
               Email address <sup>*</sup>

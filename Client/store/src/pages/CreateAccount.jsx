@@ -53,8 +53,22 @@ function CreateAccount() {
       <div className="App">
         <form onSubmit={handleSubmit}>
           <fieldset>
-            <h2>Sign Up</h2>
-            <h3 style={{ color: "red" }}>{errorForm}</h3>
+            <h2
+              style={{
+                display: "flex",
+                alignSelf: "center",
+                padding: "0px",
+                margin: "0px",
+              }}
+            >
+              Sign Up
+            </h2>
+            <h3
+              style={{ color: "red", display: "flex", alignSelf: "center" }}
+              hidden={errorForm ? false : true}
+            >
+              {errorForm}
+            </h3>
             <div className="Field">
               <label>
                 First name <sup>*</sup>
