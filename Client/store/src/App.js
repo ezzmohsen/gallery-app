@@ -12,6 +12,7 @@ import Footer from './components/Footer';
 import Cart from './components/Cart/Cart';
 import CartContext from './components/Cart/CartContext';
 import Checkout from './components/Checkout/Checkout'
+import RequireAuth from './RequireAuth'
 
 function App() {
   const [cartCount, setCartCount] = useState(0);
@@ -90,12 +91,12 @@ function App() {
             onRemoveFromWishlist={handleRemoveFromWishlist}
           />}
         />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/cart" element={<RequireAuth> <Cart /></RequireAuth>} />
+        <Route path="/checkout" element={<RequireAuth> <Checkout /></RequireAuth>} />
 
 
-        <Route path="/store/login" element={<Login />} />
-        <Route path="/store/register" element={<CreateAccount />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<CreateAccount />} />
       </Routes>
       <Footer />
 
