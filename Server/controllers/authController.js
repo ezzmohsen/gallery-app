@@ -1,7 +1,7 @@
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const { generateToken, verifyToken } = require("../utils/authToken");
-
+console.log("d");
 exports.registerUser = async (req, res) => {
   try {
     const saltRounds = 10;
