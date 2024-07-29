@@ -20,7 +20,7 @@ function Login() {
   };
 
   const handleRegister = () => {
-    return navigate("/store/register");
+    return navigate("/register");
   };
 
   const clearForm = () => {

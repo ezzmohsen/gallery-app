@@ -1,0 +1,187 @@
+.homepage {
+  text-align: center;
+  font-family: 'Arial, sans-serif';
+  color: #333;
+}
+
+.hero-section {
+  position: relative;
+  padding: 100px 20px;
+  color: #333;
+}
+
+.hero-content {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-image {
+  width: 50%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: opacity 1s ease-in-out;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  animation: slideInFromLeft 1s ease-out;
+}
+
+.hero-section p {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  animation: slideInFromRight 1s ease-out;
+}
+
+.hero-price {
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+  animation: slideInFromRight 1s ease-out;
+}
+
+.explore-button {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  color: white;
+  background-color: #333;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  animation: bounce 2s infinite;
+  transition: background-color 0.3s ease;
+}
+
+.explore-button:hover {
+  background-color: #555;
+}
+
+.features-section {
+  display: flex;
+  justify-content: space-around;
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+}
+
+.feature {
+  max-width: 300px;
+  text-align: left;
+}
+
+.feature h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.feature p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.featured-products-section {
+  padding: 60px 20px;
+  background-color: #fff;
+}
+
+.featured-products-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.product-list {
+  display: flex;
+  justify-content: space-around;
+}
+
+.product-card {
+  max-width: 200px;
+  text-align: left;
+  transition: transform 0.3s ease;
+  
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.05);
+}
+
+.product-card h3 {
+  font-size: 1.4rem;
+  margin-top: 10px;
+}
+
+.product-card p {
+  font-size: 1rem;
+  color: #777;
+}
+
+.about-section {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+}
+
+.about-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.about-section p {
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.testimonials-section {
+  padding: 60px 20px;
+  background-color: #fff;
+}
+
+.testimonials-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.testimonial {
+  max-width: 600px;
+  margin: 0 auto 20px;
+  font-size: 1rem;
+  color: #555;
+  text-align: left;
+}
+
+.testimonial h4 {
+  text-align: right;
+  color: #333;
+  font-weight: normal;
+}
+
+@keyframes slideInFromLeft {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInFromRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+  }
+  40% {
+      transform: translateY(-10px);
+  }
+  60% {
+      transform: translateY(-5px);
+  }
+}
