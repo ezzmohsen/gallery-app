@@ -16,7 +16,7 @@ const Checkout = () => {
         orderItemsId: []
     };
 
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("authToken");
 
     useEffect(() => {
         getUser()
@@ -56,7 +56,7 @@ const Checkout = () => {
             // response.data
             localStorage.removeItem('cart')
             toast.success("Order created successfully!", {
-                position: toast.POSITION.TOP_RIGHT,
+                position: 'top-right',
                 onClose: () => navigate('/')
             });
             console.log(response.data)
@@ -163,6 +163,7 @@ const Checkout = () => {
 
                     <a className='button' onClick={() => submit()}>
                         PLACE ORDER
+                        <ToastContainer />
                     </a>
 
                 </div>

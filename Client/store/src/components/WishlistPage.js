@@ -1,5 +1,5 @@
 import React from 'react';
-import './WishlistPage.css';
+import './WishlistPage.modules.css';
 
 const WishlistPage = ({ wishlistItems, onAddToCart, onRemoveFromWishlist }) => {
     return (
@@ -25,8 +25,8 @@ const WishlistPage = ({ wishlistItems, onAddToCart, onRemoveFromWishlist }) => {
                             <td>EGP {item.price}</td>
                             <td>{item.stockStatus}</td>
                             <td>
-                                <button onClick={() => onAddToCart(item)}>Add to Cart</button>
-                                <button onClick={() => onRemoveFromWishlist(item)}>Remove</button>
+                                <button onClick={() => onAddToCart(item)} className='add'>Add to Cart</button>
+                                <button onClick={() => onRemoveFromWishlist(item)} className='remove'>Remove</button>
                             </td>
                         </tr>
                     ))}

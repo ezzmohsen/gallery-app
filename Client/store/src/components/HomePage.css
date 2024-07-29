@@ -97,8 +97,6 @@
 }
 
 .product-card {
-  max-width: 200px;
-  text-align: left;
   transition: transform 0.3s ease;
   
 }

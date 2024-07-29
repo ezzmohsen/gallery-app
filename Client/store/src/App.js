@@ -27,7 +27,7 @@ function App() {
 
   const handleRemoveFromWishlist = (product) => {
     setWishlistItems((prevItems) =>
-      prevItems.filter((item) => item.id !== product.id)
+      prevItems.filter((item) => item._id !== product._id)
     );
     setWishlistCount(wishlistCount - 1);
   };
@@ -101,16 +101,15 @@ function App() {
           path="/cart"
           element={
             <RequireAuth>
-              {" "}
               <Cart />
             </RequireAuth>
           }
         />
+
         <Route
           path="/checkout"
           element={
             <RequireAuth>
-              {" "}
               <Checkout />
             </RequireAuth>
           }

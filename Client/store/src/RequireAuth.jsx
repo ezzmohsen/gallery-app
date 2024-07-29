@@ -54,11 +54,7 @@ const RequireAuth = ({ children }) => {
     return <Navigate to="/login" />;
   }
 
-  return isAuthorizedUser ? (
-    <Navigate to="/register" />
-  ) : (
-    <Navigate to="/login" />
-  );
+  return isAuthorizedUser ? children : <Navigate to="/login" />;
 };
 
 export default RequireAuth;
