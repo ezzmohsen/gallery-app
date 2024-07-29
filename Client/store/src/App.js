@@ -76,25 +76,30 @@ function App() {
         onSearch={handleSearch}
       />
       <Routes>
-        <Route path="/" element={<Homepage />} />
+        <Route path="/" element={<RequireAuth><Homepage /></RequireAuth>} />
         <Route
           path="/products"
           element={
+            <RequireAuth>
             <ProductsPage
               onAddToCart={handleAddToCart}
               onAddToWishlist={handleAddToWishlist}
               searchQuery={searchQuery}
+              
             />
+            </RequireAuth>
           }
         />
         <Route
           path="/wishlist"
           element={
+            <RequireAuth>
             <WishlistPage
               wishlistItems={wishlistItems}
               onAddToCart={handleAddToCart}
               onRemoveFromWishlist={handleRemoveFromWishlist}
             />
+            </RequireAuth>
           }
         />
         <Route
