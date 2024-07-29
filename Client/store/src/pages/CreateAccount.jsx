@@ -40,7 +40,7 @@ function CreateAccount() {
         console.log(response.data.message);
         clearForm();
         // <Navigate to="/login" />;
-        navigate("/login");
+        navigate("/store/login");
       } catch (response) {
         setErrorForm(response.response.data.message);
       }
@@ -100,7 +100,7 @@ function CreateAccount() {
                 placeholder="phone"
               />
               {phone ? (
-                <p className="FieldError" hidden={phone.length == 11}>
+                <p className="FieldError" hidden={phone.length === 11}>
                   Phone should have at least 11 number
                 </p>
               ) : null}
@@ -126,7 +126,7 @@ function CreateAccount() {
 
             <button
               type="submit"
-              disabled={password.length < 8 || phone.length != 11}
+              disabled={password.length < 8 || phone.length !== 11}
             >
               Create account
             </button>
