@@ -56,11 +56,7 @@ const Header = ({ cartCount, wishlistCount, onSearch }) => {
             </Link>
           </div>
           {token ? (
-            <div
-              className="icon-wrapper"
-              // style={{ display: logCheck }}
-              onClick={handleLogout}
-            >
+            <div className="icon-wrapper" onClick={handleLogout}>
               <Link to="/login" title="Login">
                 <IoLogOut
                   className="icon profile-icon"
