@@ -55,11 +55,6 @@ button{
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-.add{
-background-color: green;}
-.remove{
-    background-color: red;
-}
 button:hover {
     background-color: #ddd;
 }

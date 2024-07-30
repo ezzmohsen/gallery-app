@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartPlus, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import './WishlistPage.modules.css';
 
 const WishlistPage = ({ wishlistItems, onAddToCart, onRemoveFromWishlist }) => {
@@ -25,8 +27,12 @@ const WishlistPage = ({ wishlistItems, onAddToCart, onRemoveFromWishlist }) => {
                             <td>EGP {item.price}</td>
                             <td>{item.stockStatus}</td>
                             <td>
-                                <button onClick={() => onAddToCart(item)} className='add'>Add to Cart</button>
-                                <button onClick={() => onRemoveFromWishlist(item)} className='remove'>Remove</button>
+                                <button onClick={() => onAddToCart(item)} className="add">
+                                    <FontAwesomeIcon icon={faCartPlus} />
+                                </button>
+                                <button onClick={() => onRemoveFromWishlist(item)} className="remove">
+                                    <FontAwesomeIcon icon={faTrashAlt} />
+                                </button>
                             </td>
                         </tr>
                     ))}
@@ -37,4 +43,5 @@ const WishlistPage = ({ wishlistItems, onAddToCart, onRemoveFromWishlist }) => {
 };
 
 export default WishlistPage;
+
 
