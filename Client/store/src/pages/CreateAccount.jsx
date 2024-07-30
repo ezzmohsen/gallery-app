@@ -38,7 +38,7 @@ function CreateAccount() {
           formData
         );
         clearForm();
-        navigate("/store/login");
+        navigate("/login");
       } catch (response) {
         setErrorForm(response.response.data.message);
       }
@@ -52,7 +52,9 @@ function CreateAccount() {
           <h2>Sign Up</h2>
           {errorForm && <h3 className="error-message">{errorForm}</h3>}
           <div className="field">
-            <label>First name <sup>*</sup></label>
+            <label>
+              First name <sup>*</sup>
+            </label>
             <input
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -68,7 +70,9 @@ function CreateAccount() {
             />
           </div>
           <div className="field">
-            <label>Email address <sup>*</sup></label>
+            <label>
+              Email address <sup>*</sup>
+            </label>
             <input
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -76,7 +80,9 @@ function CreateAccount() {
             />
           </div>
           <div className="field">
-            <label>Phone <sup>*</sup></label>
+            <label>
+              Phone <sup>*</sup>
+            </label>
             <input
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
@@ -89,7 +95,9 @@ function CreateAccount() {
             )}
           </div>
           <div className="field">
-            <label>Password <sup>*</sup></label>
+            <label>
+              Password <sup>*</sup>
+            </label>
             <input
               value={password}
               type="password"
@@ -109,10 +117,7 @@ function CreateAccount() {
             >
               Create account
             </button>
-            <button
-              type="button"
-              onClick={() => navigate("/login")}
-            >
+            <button type="button" onClick={() => navigate("/login")}>
               Login
             </button>
           </div>
