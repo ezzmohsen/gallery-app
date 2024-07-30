@@ -1,8 +1,8 @@
-import "../App.css";
-import { useState } from "react";
+import React, { useState } from "react";
 import { validateEmail } from "../utils/utils";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "../App.css";
 
 function CreateAccount() {
   const [name, setName] = useState("");
@@ -10,9 +10,10 @@ function CreateAccount() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
-
   const [errorForm, setErrorForm] = useState("");
+
   const navigate = useNavigate();
+
   const clearForm = () => {
     setName("");
     setAddress("");
@@ -31,16 +32,12 @@ function CreateAccount() {
         address,
         password,
       };
-      console.log(formData);
-      console.log("merge");
       try {
         const response = await axios.post(
           "http://localhost:5000/api/auth/register",
           formData
         );
-        console.log(response.data.message);
         clearForm();
-        // <Navigate to="/login" />;
         navigate("/store/login");
       } catch (response) {
         setErrorForm(response.response.data.message);
@@ -49,116 +46,79 @@ function CreateAccount() {
   };
 
   return (
-    <>
-      <div className="App">
-        <form onSubmit={handleSubmit}>
-          <fieldset>
-            <h2
-              style={{
-                display: "flex",
-                alignSelf: "center",
-                padding: "0px",
-                margin: "0px",
-              }}
+    <div className="create-account-container">
+      <form onSubmit={handleSubmit} className="create-account-form">
+        <fieldset>
+          <h2>Sign Up</h2>
+          {errorForm && <h3 className="error-message">{errorForm}</h3>}
+          <div className="field">
+            <label>First name <sup>*</sup></label>
+            <input
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="First name"
+            />
+          </div>
+          <div className="field">
+            <label>Last name</label>
+            <input
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              placeholder="Last name"
+            />
+          </div>
+          <div className="field">
+            <label>Email address <sup>*</sup></label>
+            <input
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email address"
+            />
+          </div>
+          <div className="field">
+            <label>Phone <sup>*</sup></label>
+            <input
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              placeholder="Phone"
+            />
+            {phone && (
+              <p className="field-error" hidden={phone.length === 11}>
+                Phone should have at least 11 numbers
+              </p>
+            )}
+          </div>
+          <div className="field">
+            <label>Password <sup>*</sup></label>
+            <input
+              value={password}
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
+            />
+            {password && (
+              <p className="field-error" hidden={password.length >= 8}>
+                Password should have at least 8 characters
+              </p>
+            )}
+          </div>
+          <div className="button-group">
+            <button
+              type="submit"
+              disabled={password.length < 8 || phone.length !== 11}
             >
-              Sign Up
-            </h2>
-            <h3
-              style={{ color: "red", display: "flex", alignSelf: "center" }}
-              hidden={errorForm ? false : true}
+              Create account
+            </button>
+            <button
+              type="button"
+              onClick={() => navigate("/login")}
             >
-              {errorForm}
-            </h3>
-            <div className="Field">
-              <label>
-                First name <sup>*</sup>
-              </label>
-              <input
-                value={name}
-                onChange={(e) => {
-                  setName(e.target.value);
-                }}
-                placeholder="First name"
-              />
-            </div>
-            <div className="Field">
-              <label>Last name</label>
-              <input
-                value={address}
-                onChange={(e) => {
-                  setAddress(e.target.value);
-                }}
-                placeholder="Last name"
-              />
-            </div>
-            <div className="Field">
-              <label>
-                Email address <sup>*</sup>
-              </label>
-              <input
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
-                placeholder="Email address"
-              />
-            </div>
-            <div className="Field">
-              <label>
-                Phone <sup>*</sup>
-              </label>
-              <input
-                value={phone}
-                onChange={(e) => {
-                  setPhone(e.target.value);
-                }}
-                placeholder="phone"
-              />
-              {phone ? (
-                <p className="FieldError" hidden={phone.length === 11}>
-                  Phone should have at least 11 number
-                </p>
-              ) : null}
-            </div>
-            <div className="Field">
-              <label>
-                Password <sup>*</sup>
-              </label>
-              <input
-                value={password.value}
-                type="password"
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
-                placeholder="Password"
-              />
-              {password ? (
-                <p className="FieldError" hidden={password.length >= 8}>
-                  Password should have at least 8 characters
-                </p>
-              ) : null}
-            </div>
-            <div style={{ display: "flex" }}>
-              <button
-                type="submit"
-                disabled={password.length < 8 || phone.length !== 11}
-              >
-                Create account
-              </button>
-              <button
-                disabled={false}
-                onClick={() => {
-                  console.log("here");
-                  navigate("/login");
-                }}
-              >
-                Login
-              </button>
-            </div>
-          </fieldset>
-        </form>
-      </div>
-    </>
+              Login
+            </button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
   );
 }
 

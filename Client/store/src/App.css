@@ -1,78 +1,187 @@
-.App {
+.create-account-container {
   display: flex;
-  flex: 1;
-  height: 100vh;
   justify-content: center;
   align-items: center;
+  padding: 20px;
+  background-color: #f8f8f8;
+  height: 100vh;
 }
 
-fieldset {
-  display: flex;
-  width: 480px;
-  padding: 16px;
+.create-account-form {
+  background: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  animation: slideInUp 0.7s ease-out;
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.create-account-form fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.create-account-form h2 {
+  text-align: center;
+  color: #333;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.create-account-form .field {
+  margin-bottom: 15px;
+}
+
+.create-account-form .field label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.create-account-form .field input {
+  width: 100%;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  flex-direction: column;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
 }
 
-label {
-  margin-bottom: 8px;
-  font-size: 14px;
+.create-account-form .field input:focus {
+  border-color: #333;
 }
 
-sup {
-  color: red;
-  top: -2px;
-  font-size: 95%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-input,
-select {
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  height: 32px;
-  padding: 0 8px;
-}
-
-.Field {
-  position: relative;
-  padding-bottom: 24px;
-  display: flex;
-  flex-direction: column;
-}
-
-.FieldError {
-  position: absolute;
-  bottom: -6px;
+.create-account-form .field-error {
   color: red;
   font-size: 12px;
+  margin-top: 5px;
 }
 
-.Row {
+.create-account-form .button-group {
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
 }
 
-button {
-  padding: 12px;
-  width: 240px;
+.create-account-form button {
+  padding: 10px 20px;
+  border: none;
   border-radius: 4px;
-  border: 1px solid #ccc;
-  background-color: darkblue;
-  color: white;
-  text-transform: uppercase;
-  font-size: 14px;
-  font-weight: bold;
+  background-color: #333;
+  color: #fff;
   cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
 }
 
-button:disabled,
-button[disabled] {
-  border: 1px solid #999999;
-  background-color: #cccccc;
-  color: #666666;
+.create-account-form button[disabled] {
+  background-color: #ccc;
   cursor: not-allowed;
+}
+
+.create-account-form button:hover:not([disabled]) {
+  background-color: #f56;
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.auth-form {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  animation: slideInUp 0.7s ease-out;
+}
+
+.auth-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+  animation: fadeIn 1s ease-in;
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+}
+
+.auth-field {
+  margin-bottom: 20px;
+}
+
+.auth-field label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.auth-field input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.auth-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.auth-buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-buttons button:first-of-type {
+  background-color: green;
+  color: #fff;
+}
+
+.auth-buttons button:first-of-type:hover {
+  background-color: #bf0410;
+}
+
+.auth-buttons button:last-of-type {
+  background-color: #ddd;
+  color: #333;
+}
+
+.auth-buttons button:last-of-type:hover {
+  background-color: #ccc;
+}
+
+.field-error {
+  color: red;
+  font-size: 14px;
 }

@@ -2,7 +2,6 @@
     background-color: #fff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: background-color 0.7s ease;
-    
 }
 
 .header:hover {
@@ -17,8 +16,6 @@
     background-color: #fff;
     animation: slideInDown 0.5s ease-out;
     padding-left: 45%;    
-
-    
 }
 
 @keyframes slideInDown {
@@ -84,6 +81,37 @@
     position: relative;
     display: flex;
     align-items: center;
+}
+
+.icon-wrapper .icon {
+    position: relative;
+}
+
+.icon-wrapper .icon:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    border-radius: 3px;
+    white-space: nowrap;
+    z-index: 1;
+    font-size: 0.75rem;
+    pointer-events: none;
+}
+
+.icon-wrapper .icon:hover::after::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #333 transparent;
 }
 
 .icon-badge {

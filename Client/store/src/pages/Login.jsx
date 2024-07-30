@@ -8,11 +8,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorForm, setErrorForm] = useState("");
-  const PasswordErrorMessage = () => {
-    return (
-      <p className="FieldError">Password should have at least 8 characters</p>
-    );
-  };
+
   const navigate = useNavigate();
 
   const getIsFormValid = () => {
@@ -27,92 +23,60 @@ function Login() {
     setEmail("");
     setPassword("");
   };
-  const formData = {
-    email: email,
-    password: password,
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (validateEmail(email) && password.length >= 8) {
+    if (getIsFormValid()) {
       try {
         const response = await axios.post(
           "http://localhost:5000/api/auth/login",
-          formData
+          { email, password }
         );
-        console.log(response.data);
         if (response.data && response.data.token) {
           localStorage.setItem("authToken", response.data.token);
-
           navigate("/");
         }
       } catch (response) {
         setErrorForm(response.response.data.message);
-        // console.log(error);
       }
+      clearForm();
     }
-
-    clearForm();
   };
 
   return (
-    <div className="App">
-      <form onSubmit={handleSubmit}>
-        <fieldset>
-          <h2
-            style={{
-              display: "flex",
-              alignSelf: "center",
-              padding: "0px",
-              margin: "0px",
-            }}
-          >
-            Log In
-          </h2>
-          <h3 style={{ color: "red" }} hidden={errorForm ? false : true}>
-            {errorForm}
-          </h3>
-          <div className="Field">
-            <label>
-              Email address <sup>*</sup>
-            </label>
-            <input
-              value={email}
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
-              placeholder="Email address"
-            />
-          </div>
-
-          <div className="Field">
-            <label>
-              Password <sup>*</sup>
-            </label>
-            <input
-              value={password.value}
-              type="password"
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
-              placeholder="Password"
-            />
-            {password.isTouched && password.value.length < 8 ? (
-              <PasswordErrorMessage />
-            ) : null}
-          </div>
-          <div style={{ display: "flex" }}>
-            <button type="submit">Log In</button>
-
-            <button
-              onClick={() => {
-                handleRegister();
-              }}
-            >
-              Create Account
-            </button>
-          </div>
-        </fieldset>
+    <div className="auth-container">
+      <form className="auth-form" onSubmit={handleSubmit}>
+        <h2>Log In</h2>
+        <h3 className="error-message" hidden={!errorForm}>
+          {errorForm}
+        </h3>
+        <div className="auth-field">
+          <label>
+            Email address <sup>*</sup>
+          </label>
+          <input
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email address"
+          />
+        </div>
+        <div className="auth-field">
+          <label>
+            Password <sup>*</sup>
+          </label>
+          <input
+            value={password}
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password"
+          />
+        </div>
+        <div className="auth-buttons">
+          <button type="submit">Log In</button>
+          <button onClick={handleRegister}>
+            Create Account
+          </button>
+        </div>
       </form>
     </div>
   );
