@@ -13,7 +13,7 @@ const Header = ({ cartCount, wishlistCount, onSearch }) => {
 
     const handleSearchChange = (e) => {
         setSearchQuery(e.target.value);
-        onSearch(e.target.value); 
+        onSearch(e.target.value);
     };
 
     return (

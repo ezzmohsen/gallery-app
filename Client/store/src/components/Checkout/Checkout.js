@@ -34,7 +34,7 @@ const Checkout = () => {
             setData(response.data)
             console.log(response.data)
         } catch (error) {
-            console.error("Error submitting the order:", error);
+            console.error("Error getting the user", error);
         }
     }
     const submit = async () => {
@@ -46,7 +46,6 @@ const Checkout = () => {
         orderItems.orderItemsId = items;
 
         try {
-
             const response = await axios.post("http://localhost:5000/api/orders", orderItems, {
                 headers: {
                     Authorization: `Bearer ${token}`,

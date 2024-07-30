@@ -12,6 +12,8 @@ import Footer from "./components/Footer";
 import Cart from "./components/Cart/Cart";
 import CartContext from "./components/Cart/CartContext";
 import Checkout from "./components/Checkout/Checkout";
+import Profile from "./components/Profile/Profile";
+
 import RequireAuth from "./RequireAuth";
 
 function App() {
@@ -81,12 +83,12 @@ function App() {
           path="/products"
           element={
             <RequireAuth>
-            <ProductsPage
-              onAddToCart={handleAddToCart}
-              onAddToWishlist={handleAddToWishlist}
-              searchQuery={searchQuery}
-              
-            />
+              <ProductsPage
+                onAddToCart={handleAddToCart}
+                onAddToWishlist={handleAddToWishlist}
+                searchQuery={searchQuery}
+
+              />
             </RequireAuth>
           }
         />
@@ -94,11 +96,11 @@ function App() {
           path="/wishlist"
           element={
             <RequireAuth>
-            <WishlistPage
-              wishlistItems={wishlistItems}
-              onAddToCart={handleAddToCart}
-              onRemoveFromWishlist={handleRemoveFromWishlist}
-            />
+              <WishlistPage
+                wishlistItems={wishlistItems}
+                onAddToCart={handleAddToCart}
+                onRemoveFromWishlist={handleRemoveFromWishlist}
+              />
             </RequireAuth>
           }
         />
@@ -116,6 +118,15 @@ function App() {
           element={
             <RequireAuth>
               <Checkout />
+            </RequireAuth>
+          }
+        />
+
+        <Route
+          path="/profile"
+          element={
+            <RequireAuth>
+              <Profile />
             </RequireAuth>
           }
         />
