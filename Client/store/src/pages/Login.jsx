@@ -34,7 +34,6 @@ function Login() {
         );
         if (response.data && response.data.token) {
           localStorage.setItem("authToken", response.data.token);
-          localStorage.setItem("logged", "1");
           navigate("/");
         }
       } catch (response) {
