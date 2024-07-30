@@ -61,7 +61,7 @@ const Header = ({ cartCount, wishlistCount, onSearch }) => {
                 <IoLogOut
                   className="icon profile-icon"
                   id="log"
-                  title="LogOut"
+                  title="Logout"
                 />
               </Link>
             </div>
