@@ -15,7 +15,7 @@
     padding: 20px;
     background-color: #fff;
     animation: slideInDown 0.5s ease-out;
-    padding-left: 45%;    
+    padding-left: 45%;
 }
 
 @keyframes slideInDown {
@@ -69,7 +69,9 @@
     color: #333;
     margin-left: 20px;
     cursor: pointer;
-    transition: transform 0.3s ease, color 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease;
 }
 
 .icon:hover {
@@ -104,7 +106,7 @@
 }
 
 .icon-wrapper .icon:hover::after::before {
-    content: '';
+    content: "";
     position: absolute;
     top: -5px;
     left: 50%;
@@ -182,4 +184,8 @@
 
 .search-input:focus {
     width: 400px;
+}
+
+.hidden {
+    display: none;
 }

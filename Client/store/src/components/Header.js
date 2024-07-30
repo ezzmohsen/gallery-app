@@ -1,11 +1,25 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './Header.css';
-import { FaSearch, FaHeart, FaShoppingCart, FaUser } from 'react-icons/fa';
+import { FaSearch, FaHeart, FaShoppingCart, FaUser, FaSignInAlt, FaSignOutAlt } from 'react-icons/fa';
 
 const Header = ({ cartCount, wishlistCount, onSearch }) => {
     const [searchVisible, setSearchVisible] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const navigate = useNavigate();
+
+
+    useEffect(() => {
+        setInterval(() => {
+            const token = localStorage.getItem('authToken');
+            if (token) {
+                setIsLoggedIn(true);
+            } else {
+                setIsLoggedIn(false);
+            }
+        }, [])
+    }, 5000);
 
     const toggleSearchBar = () => {
         setSearchVisible(!searchVisible);
@@ -14,6 +28,16 @@ const Header = ({ cartCount, wishlistCount, onSearch }) => {
     const handleSearchChange = (e) => {
         setSearchQuery(e.target.value);
         onSearch(e.target.value);
+    };
+
+    const handleAuthClick = () => {
+        if (isLoggedIn) {
+            localStorage.removeItem('authToken');
+            setIsLoggedIn(false);
+            navigate('/login');
+        } else {
+            navigate('/login');
+        }
     };
 
     return (
@@ -41,6 +65,16 @@ const Header = ({ cartCount, wishlistCount, onSearch }) => {
                         <Link to="/profile" title="View Profile">
                             <FaUser className="icon profile-icon" />
                         </Link>
+                    </div>
+                    <div className="icon-wrapper">
+                        <FaSignInAlt title='login'
+                            className={`icon auth-icon ${isLoggedIn ? 'hidden' : ''}`}
+                            onClick={handleAuthClick}
+                        />
+                        <FaSignOutAlt title='logout'
+                            className={`icon auth-icon ${isLoggedIn ? '' : 'hidden'}`}
+                            onClick={handleAuthClick}
+                        />
                     </div>
                 </div>
             </div>
