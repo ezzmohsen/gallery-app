@@ -17,6 +17,10 @@
     animation: slideInDown 0.5s ease-out;
     padding-left: 45%;    
 }
+#log{
+    scale: 1.25;
+    margin: 10px; 
+  }
 
 @keyframes slideInDown {
     from {
