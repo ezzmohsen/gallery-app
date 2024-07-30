@@ -73,9 +73,7 @@ function Login() {
         </div>
         <div className="auth-buttons">
           <button type="submit">Log In</button>
-          <button onClick={handleRegister}>
-            Create Account
-          </button>
+          <button onClick={handleRegister}>Create Account</button>
         </div>
       </form>
     </div>
