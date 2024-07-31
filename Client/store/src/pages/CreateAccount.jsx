@@ -66,7 +66,7 @@ function CreateAccount() {
             <input
               value={address}
               onChange={(e) => setAddress(e.target.value)}
-              placeholder="Last name"
+              placeholder="Address"
             />
           </div>
           <div className="field">
