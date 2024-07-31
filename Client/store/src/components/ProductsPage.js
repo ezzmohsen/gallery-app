@@ -119,7 +119,7 @@ const ProductsPage = ({ onAddToCart, onAddToWishlist, searchQuery }) => {
     <div style={styles.productsPage}>
       <div style={styles.productList}>
         {filteredProducts.map((product) => (
-          <div
+          <div className={product.stock < 1 ? 'disable' : ''}
             key={product.id}
             style={styles.productCard}
             onMouseEnter={(e) => {
