@@ -6,7 +6,7 @@ import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Checkout = () => {
+const Checkout = ({ setCartCount }) => {
     const { cart, dispatch } = useContext(CartContext);
     const [userData, setData] = useState(null);
 
@@ -54,9 +54,13 @@ const Checkout = () => {
             });
             // response.data
             localStorage.removeItem('cart')
+            setCartCount(0);
+            dispatch({ type: 'CLEAR_CART' })
             toast.success("Order created successfully!", {
                 position: 'top-right',
-                onClose: () => navigate('/')
+                autoClose: 1000,
+                onClose: () => (setCartCount(0),
+                    dispatch({ type: 'CLEAR_CART' }), navigate('/'))
             });
             console.log(response.data)
 
