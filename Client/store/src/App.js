@@ -117,7 +117,7 @@ function App() {
           path="/checkout"
           element={
             <RequireAuth>
-              <Checkout />
+              <Checkout setCartCount={setCartCount} />
             </RequireAuth>
           }
         />

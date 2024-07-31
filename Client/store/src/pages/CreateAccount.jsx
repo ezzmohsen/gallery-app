@@ -53,12 +53,12 @@ function CreateAccount() {
           {errorForm && <h3 className="error-message">{errorForm}</h3>}
           <div className="field">
             <label>
-              First name <sup>*</sup>
+              User Name<sup>*</sup>
             </label>
             <input
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="First name"
+              placeholder="User Name"
             />
           </div>
           <div className="field">
