@@ -62,7 +62,7 @@ function CreateAccount() {
             />
           </div>
           <div className="field">
-            <label>Last name</label>
+            <label>Address</label>
             <input
               value={address}
               onChange={(e) => setAddress(e.target.value)}
